@@ -1,0 +1,27 @@
+from random import randint
+
+Black_color = 0
+Red_color = 0
+Money = 1000
+while input('Начать = любой символ; Закончить = off:') != 'off':
+    print('Ваш баланс:', Money)
+    color = int(input('Выберите цвет (Красный = 1; Чёрный = 2):'))
+    rate = int(input('Сколько денег ставите?'))
+    color_random = randint(1, 2)
+    if color_random == 1:
+        print('Выпал цвет Красный')
+    if color_random == 2:
+        print('Выпал цвет Чёрный')
+    if color_random == color:
+        Money += rate
+    else:
+        Money -= rate
+print('Ваш итоговый баланс:', Money)
+if Money > 1000:
+    print('Поздравляю с уходом в плюс, вы выйграли:', Money - 1000)
+elif Money == 1000:
+    print('Вы ушли в 0.')
+elif Money >= 0 and Money < 1000:
+    print('Вы ушли в минус, вы потеряли:', 1000 - Money)
+else:
+    print('Вы должны нам:', Money - Money*2)
